@@ -2,9 +2,13 @@ const { Router, request, response } = require('express') //importando apenas o m
 
 //Controllers
 const PessoaController = require('./controllers/PessoaController')
+const SearchController = require('./controllers/SearchController')
 
 const routes = Router()
 
-routes.post('/pessoas', PessoaController.store)
-routes.get('/pessoas', PessoaController.index)
+//Rotas
+routes.post('/pessoas', PessoaController.store) //cria
+routes.get('/pessoas', PessoaController.index) //lista
+routes.get('/search', SearchController.index) //busca
+
 module.exports = routes
