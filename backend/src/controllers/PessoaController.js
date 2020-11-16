@@ -1,6 +1,15 @@
 const Pessoa = require('../models/Pessoa')
+const { index } = require('../models/utils/PointSchema')
+
+//Métodos index, show, store, update, destroy
 
 module.exports = {
+    async index(request, response){
+        const pessoas = await Pessoa.find() //filtro
+
+        return response.json(pessoas)
+    },
+
     async store(request, response) {
         //console.log(request.body)
         
